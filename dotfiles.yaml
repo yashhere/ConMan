@@ -1,3 +1,0 @@
-pre:
-  - name: clone
-    command: 'git clone https://github.com/yashhere/dotfiles.git'
