@@ -41,9 +41,16 @@ def excute_commands(section, configObj, cwd):
     elif section == 'linking':
         for directory in configObj[section]:
             print("Processing {}".format(directory['name']))
-            _src = directory['src']
-            _dest = directory['dest']
+            _src = os.path.join(cwd, directory['src'])
+            _dest = os.path.expandvars('$HOME') + '/' + directory['dest']
+
             print(_src, _dest)
+            if os.path.lexists(_dest):
+                print("Link already exists at destination. Removing it...")
+                os.unlink(_dest)
+
+            os.symlink(_src, _dest)
+
 
 
 def readConfig(path):

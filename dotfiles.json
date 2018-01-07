@@ -1,0 +1,32 @@
+{
+  "pre": [
+    {
+      "name": "cloning repository",
+      "command": "git",
+      "subcommand": "clone",
+      "argument": "https://github.com/yashhere/dotfiles.git"
+    }
+  ],
+  "linking": [
+    {
+      "name": "vim",
+      "src": "dotfiles/vimrc",
+      "dest": "test/.vimrc"
+    },
+    {
+      "name": "i3",
+      "src": "dotfiles/i3",
+      "dest": "test/i3"
+    },
+    {
+      "name": "bashrc",
+      "src": "dotfiles/.bashrc",
+      "dest": "test/.bashrc"
+    },
+    {
+      "name": "polybar",
+      "src": "dotfiles/polybar",
+      "dest": "test/polybar"
+    }
+  ]
+}
