@@ -5,18 +5,35 @@ import sys
 import shutil
 import subprocess
 import collections
+import errno
+from distutils.dir_util import copy_tree
 try:
     import simplejson as json
 except ImportError:
     import json
 
 
+def backup_all_files(backup_dir, src_dir):
+    print(backup_dir, src_dir)
+    if not os.path.isdir(backup_dir):
+        os.makedirs(backup_dir)
+    else:
+        print("backup directory already exists. Continuing to backup...")
+
+    if not os.path.exists(src_dir):
+        print("the {} doesn't exist.".format(src_dir))
+        return
+
+    try:
+        shutil.copytree(src_dir, backup_dir+'/')
+    except OSError as e:
+        if e.errno == errno.ENOTDIR:
+            shutil.copy(src_dir, backup_dir+'/')
+        else:
+            raise
+
 def construct_command(command, subcommand, argument):
     return command + ' ' + subcommand + ' ' + argument
-
-
-def check_existing_symlinks():
-    return
 
 
 def excute_commands(section, configObj, cwd):
@@ -40,17 +57,19 @@ def excute_commands(section, configObj, cwd):
 
     elif section == 'linking':
         for directory in configObj[section]:
-            print("Processing {}".format(directory['name']))
             _src = os.path.join(cwd, directory['src'])
             _dest = os.path.expandvars('$HOME') + '/' + directory['dest']
 
-            print(_src, _dest)
+            print("Backing up {}".format(directory['name']))
+            backup_all_files(cwd + '/.backups', _dest)
+
+            print("Processing {}".format(directory['name']))
+            # print(_src, _dest)
             if os.path.lexists(_dest):
                 print("Link already exists at destination. Removing it...")
                 os.unlink(_dest)
 
             os.symlink(_src, _dest)
-
 
 
 def readConfig(path):
