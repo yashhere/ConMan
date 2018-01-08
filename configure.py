@@ -14,28 +14,23 @@ except ImportError:
     import json
 
 
-def backup_all_files(backup_dir, src_dir):
-    print(backup_dir, src_dir)
-    if not os.path.isdir(backup_dir):
-        os.makedirs(backup_dir)
-    else:
-        print("backup directory already exists. Continuing to backup...")
-
-    if not (os.path.isfile(src_dir) and os.path.isdir(src_dir)):
-        print("the {} doesn't exist.".format(src_dir))
-        return
-
-    try:
-        shutil.copytree(src_dir, backup_dir + '/' + src_dir.split('/')[-1])
-    except OSError as e:
-        if e.errno == errno.ENOTDIR:
-            shutil.copy(src_dir, backup_dir + '/')
-        else:
-            raise
-
-
 def construct_command(command, subcommand, argument):
     return command + ' ' + subcommand + ' ' + argument
+
+
+def backup_files(backup_dir, src_dir):
+    if os.path.exists(src_dir):
+        if os.path.islink(src_dir):
+            print("Deleting symlink {}".format(src_dir))
+            os.unlink(src_dir)
+        else:
+            try:
+                shutil.move(src_dir, backup_dir + '/' + src_dir.split('/')[-1])
+            except OSError as e:
+                if e.errno == errno.ENOTDIR:
+                    shutil.move(src_dir, backup_dir)
+                else:
+                    raise
 
 
 def excute_commands(section, configObj, cwd):
@@ -58,33 +53,45 @@ def excute_commands(section, configObj, cwd):
                 print("{} already exists. Skipping git clone...".format(repo_name))
 
     elif section == 'linking':
+        now = datetime.datetime.now()
+        backup_dir = cwd + '/.backups' +  '/' + \
+            now.strftime("%d-%m-%Y-%H:%M")
+
+        if not os.path.isdir(backup_dir):
+            os.makedirs(backup_dir)
+        else:
+            print("backup directory already exists. Continuing to backup...")
+
+        current_status = cwd + '/current_status'
+        if not os.path.exists(current_status):
+            file = open(current_status, 'w')
+            file.close()
+
+        status = open(current_status).read()
+        current_files = [os.path.expanduser(
+            file) for file in status.strip().split('\n')]
+
+        for file in current_files:
+            if os.path.islink(file):
+                os.unlink(file)
+
+        symmed_list = []
         for directory in configObj[section]:
             _src = os.path.join(cwd, directory['src']).rstrip('/')
             _dest = os.path.expandvars(
                 '$HOME') + '/' + directory['dest'].rstrip('/')
 
-            print("Backing up {}".format(directory['name']))
-            now = datetime.datetime.now()
-            backup_dir = cwd + '/.backups' +  '/' + \
-                now.strftime("%d-%m-%Y-%H:%M")
-
-            current_status = cwd + '/current_status'
-            if not os.path.exists(current_status):
-                file = open(current_status, 'a')
-                file.close()
-
-            current_status = open(cwd + '/current_status').read()
-            current_files = [os.path.expanduser(file) for file in current_status.strip().split('\n')]
-            print(current_files)
-            # backup_all_files(backup_dir, _dest)
-
+            backup_files(backup_dir, _dest)
             # print("Processing {}".format(directory['name']))
-            # # print(_src, _dest)
-            # if os.path.lexists(_dest):
-            #     print("Link already exists at destination. Removing it...")
-            #     os.unlink(_dest)
 
-            # os.symlink(_src, _dest)
+            if os.path.lexists(_dest):
+                print("Link already exists at destination. Removing it...")
+                os.unlink(_dest)
+
+            os.symlink(_src, _dest)
+            symmed_list.append(_dest)
+
+        open(current_status, "w").write("\n".join(symmed_list))
 
 
 def readConfig(path):
@@ -110,7 +117,7 @@ def main():
     if not os.path.exists(cwd + '/.backups'):
         os.makedirs(cwd + '/.backups')
 
-    print(json.dumps(configObj, indent=2 * ' '))
+    # print(json.dumps(configObj, indent=2 * ' '))
     vars = [name for name, value in configObj.items()]
     # print(vars)
 
