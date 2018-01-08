@@ -1,0 +1,52 @@
+set autoindent
+set constantshow
+set positionlog
+set smarthome
+set smooth
+set softwrap
+set tabsize 4
+set tabstospaces
+set wordbounds
+
+
+########### SYNTAX HIGHLIGHTING BY @serialhex ###########
+## Python
+include "~/.nano/python.nanorc"
+
+## C/C++
+include "~/.nano/c.nanorc"
+
+## nano highlighting nano!!
+include "~/.nano/nanorc.nanorc"
+
+## Bourne shell scripts
+include "~/.nano/bash.nanorc"
+
+## CSS
+include "~/.nano/css.nanorc"
+
+## HTML
+include "~/.nano/html.nanorc"
+
+## Markdown
+include "~/.nano/markdown.nanorc"
+
+## JavaScript
+include "~/.nano/js.nanorc"
+
+## Makefile
+include "~/.nano/makefile.nanorc"
+
+## Man
+include "~/.nano/man.nanorc"
+
+## Tex
+include "~/.nano/tex.nanorc"
+
+## XOrg
+include "~/.nano/xorg.nanorc"
+
+## Apache
+include "~/.nano/apache2.nanorc"
+include "~/.nano/apacheconf.nanorc"
+

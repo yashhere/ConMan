@@ -1,0 +1,29 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"AdvancedNewFile",
+		"GitGutter",
+		"HTML-CSS-JS Prettify",
+		"HTMLBeautify",
+		"Jedi - Python autocompletion",
+		"LanguageTool",
+		"Markdown Preview",
+		"MarkdownLivePreview",
+		"Materialize",
+		"Package Control",
+		"PackageResourceViewer",
+		"Python PEP8 Autoformat",
+		"SideBarEnhancements",
+		"SublimeLinter",
+		"SublimeLinter-pep8",
+		"SublimeLinter-pycodestyle",
+		"SublimeLinter-pydocstyle",
+		"SublimeLinter-pyflakes",
+		"Theme - Spacegray",
+		"Themr"
+	]
+}

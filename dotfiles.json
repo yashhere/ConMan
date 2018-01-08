@@ -9,24 +9,99 @@
   ],
   "linking": [
     {
-      "name": "vim",
-      "src": "dotfiles/vimrc",
-      "dest": "test/.vimrc"
+      "name": "tmux-conf",
+      "src": "dotfiles/.tmux.conf",
+      "dest": ".tmux.conf"
     },
     {
-      "name": "i3",
-      "src": "dotfiles/i3",
-      "dest": "test/i3"
+      "name": "tmux",
+      "src": "dotfiles/.tmux",
+      "dest": ".tmux"
     },
     {
       "name": "bashrc",
       "src": "dotfiles/.bashrc",
-      "dest": "test/.bashrc"
+      "dest": ".bashrc"
     },
     {
-      "name": "polybar",
-      "src": "dotfiles/polybar",
-      "dest": "test/polybar"
+      "name": "bash_profile",
+      "src": "dotfiles/.bash_profile",
+      "dest": ".bash_profile"
+    },
+    {
+      "name": "profile",
+      "src": "dotfiles/.profile",
+      "dest": ".profile"
+    },
+    {
+      "name": "dunst",
+      "src": "dotfiles/dunst",
+      "dest": ".config/dunst"
+    },
+    {
+      "name": "fonts",
+      "src": "dotfiles/.fonts",
+      "dest": ".fonts"
+    },
+    {
+      "name": "gitconfig",
+      "src": "dotfiles/.gitconfig",
+      "dest": ".gitconfig"
+    },
+    {
+      "name": "gitignore",
+      "src": "dotfiles/.gitignore",
+      "dest": ".gitignore"
+    },
+    {
+      "name": "gitignore_global",
+      "src": "dotfiles/.gitignore_global",
+      "dest": ".gitignore_global"
+    },
+    {
+      "name": "gtk-3.0",
+      "src": "dotfiles/gtk-3.0",
+      "dest": ".config/gtk-3.0"
+    },
+    {
+      "name": "gtk-2.0",
+      "src": "dotfiles/.gtkrc-2.0",
+      "dest": ".gtkrc-2.0"
+    },
+    {
+      "name": "mutt",
+      "src": "dotfiles/.mutt",
+      "dest": ".mutt"
+    },
+    {
+      "name": "nano",
+      "src": "dotfiles/.nano",
+      "dest": ".nano"
+    },
+    {
+      "name": "nanorc",
+      "src": "dotfiles/.nanorc",
+      "dest": ".nanorc"
+    },
+    {
+      "name": "npmrc",
+      "src": "dotfiles/.npmrc",
+      "dest": ".npmrc"
+    },
+    {
+      "name": "redshift",
+      "src": "dotfiles/redshift.conf",
+      "dest": ".config/redshift.conf"
+    },
+    {
+      "name": "sublime",
+      "src": "dotfiles/sublime",
+      "dest": ".config/sublime-text-3/Packages/User"
+    },
+    {
+      "name": "termite",
+      "src": "dotfiles/termite",
+      "dest": ".config/termite"
     }
   ]
 }

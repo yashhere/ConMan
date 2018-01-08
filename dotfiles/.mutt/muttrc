@@ -1,0 +1,137 @@
+# protect imap and smtp passwords with GPG
+source "gpg -d ~/.mutt/passwords.gpg |"
+
+set folder      = imaps://imap.gmail.com/
+set imap_user   = $my_user
+set spoolfile   = +INBOX
+mailboxes       = 'INBOX' ='[Gmail]/All Mail' ='[Gmail]/Drafts' ='[Gmail]/Sent Mail'
+
+set smtp_url = "smtp://$my_user@smtp.gmail.com:587/"
+set from = $my_user
+set realname = "Yash Agarwal"
+
+# Store message headers locally to speed things up.
+# # If hcache is a folder, Mutt will create sub cache folders for each account which may speeds things up even more.
+set header_cache = ~/.cache/mutt
+#
+# # Store messages locally to speed things up, like searching message bodies.
+# # Can be the same folder as header_cache.
+# # This will cost important disk usage according to your e-mail amount.
+set message_cachedir = "~/.cache/mutt"
+#
+# # Specify where to save and/or look for postponed messages.
+# set postponed = +[Gmail]/Drafts
+#
+# # Allow Mutt to open a new IMAP connection automatically.
+unset imap_passive
+#
+# # Keep the IMAP connection alive by polling intermittently (time in seconds).
+set imap_keepalive = 300
+
+# Ideal time before scanning
+set timeout             = 60
+
+# How often to check for new mail (time in seconds).
+set mail_check = 120
+
+# G to get mail
+bind index G imap-fetch-mail
+set editor = "vim"
+set charset = "utf-8"
+
+set sort = threads
+#set sort = reverse-date-received
+set sort_aux = reverse-last-date-received
+
+# SSL hardening
+set ssl_force_tls=yes
+set ssl_starttls=yes
+set ssl_use_sslv3=no
+set ssl_use_tlsv1=no
+set ssl_use_tlsv1_1=no
+set ssl_use_tlsv1_2=yes
+set ssl_verify_dates=yes
+set ssl_verify_host=yes
+
+set header_cache=~/.mutt/gmailcache
+set certificate_file=~/.mutt/gmailcertificates
+# looks like you must explicitly do this to make sure you
+# # don't save local copies of sent mail >:(
+unset record
+
+set move = no
+set hostname=mrmux                        # Name of our local host.
+set hidden_host                           # Hide host details.
+set envelope_from                         # set the envelope-from information
+set postpone=ask-no                       # Ask about postponing.
+set print=ask-yes                         # Ask before printing.
+set delete=no                             # Ask before doing a delete.
+set include                               # Include the message in replies.
+set noallow_8bit                          # 8bit isn't safe via Demon.
+set ascii_chars=yes                       # use ascii characters when displaying trees
+set meta_key=yes                          # allow to use alt or ESC
+set fast_reply                            # skip initial prompts when replying
+set nomark_old                            # Don't mark unread new msgs as old.
+set nobeep                                # We don't need no beeping software.
+set smart_wrap                            # Don't want smart wrapping.
+set nomarkers                             # Don't want any wrap markers.
+set mime_forward                          # Forward message as MIME attachments.
+set pager_context=3                       # Display 3 lines of context in pager.
+set pager_index_lines=20                  # number of index lines to show
+set nostrict_threads                      # Lets have some fuzzy threading.
+set nopipe_decode                         # Don't decode messages when piping.
+set text_flowed                           # label messages as format-flowed
+set tilde                                 # Fill out messages with '~'.
+set read_inc=100                          # Read counter ticks every 100 msgs.
+set write_inc=100                         # Write counter ticks every 100 msgs.
+set noconfirmappend                       # Just append, don't hassle me.
+set pager_stop = yes                      # Don't skip msgs on next page.
+
+ignore *                                                               # ignore all headers
+unignore from: to: cc: date: subject:                                  # show only these
+unhdr_order *                                                          # some distros order things by default
+hdr_order from: to: cc: date: subject:                                 # and in this order
+set date_format         = "%d-%m-%y"                                   # a simple date format
+set index_format        = "[%Z]  %D  %-20.20F  %s"                     # format of the index view, show all flags, date, the sender and finally the subject
+set uncollapse_jump                                                    # don't collapse on an unread message
+set sort_re                                                            # thread based on regex
+set reply_regexp        = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+set forward_format      = "Fwd: %s"                                    # when forwarding email, simply add a Fwd to the subject
+
+auto_view text/html                                                    # autoview html
+alternative_order text/plain text/enriched text/html                   # save html for last
+
+set status_chars        = " *%A"
+set status_format       = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
+
+# Custom keybindings
+bind index,pager ! noop                                                # unbind report-spam
+bind index,pager \# noop                                               # unbind delete-thread
+bind index,pager % noop                                                # unbind toggle-write
+bind index,pager & noop                                                # unbind link-threads
+
+bind index,pager b noop                                                # Unbind bounce
+bind index,pager A create-alias                                        # bind alias-creation
+bind pager <up> previous-line                                          # scroll inside the message rather than the index
+bind pager <down> next-line                                            # scroll inside the message rather than the index
+
+# Gmail style keybindings
+bind  editor <space> noop
+bind  index,pager c  mail                                              # compose
+bind  generic     x  tag-entry		                               # Select Conversation
+bind  index       x  tag-thread		                               # Select Conversation
+bind  pager       x  tag-message	                               # Select Conversation
+bind  index,pager s  flag-message	                               # Star a message
+
+bind  index,pager a  group-reply	                               # Reply all
+#bind  index,pager \# delete-thread	                               # Delete
+bind  index,pager l  copy-message	                               # Label
+bind  index,pager m  save-message	                               # Move to
+
+# colors!
+#source ~/.mutt/base-16.mutt
+
+# Last, but not least, get mutt to display its version on startup.
+push <show-version>
+message-hook '!(~g|~G) ~b"^-----BEGIN\ PGP\ (SIGNED\ )?MESSAGE"' "exec check-traditional-pgp"
+auto_view text/html                       # eg with links --dump

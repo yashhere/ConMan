@@ -1,0 +1,97 @@
+[alias]
+  st = status
+	ct = commit
+  cl = clone
+	br = branch
+	co = checkout
+	df = diff
+	ds = diff --stat
+  dc = diff --cached
+	lg = log --color --graph --pretty=format:'%Cgreen[%Creset%h%Cgreen]%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  ec = config --global -e
+  la = "!git config -l | grep alias | cut -c 7-"
+  branches = branch -a
+  ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+  ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+
+[user]
+	name = Yash Agarwal
+	email = yashagarwaljpr@gmail.com
+
+[push]
+  default = simple
+
+[core]
+  editor = vim
+  pager = less -x4
+	excludesfile = /home/yash/.gitignore_global
+
+[merge]
+  conflictstyle = diff3
+  tool = meld
+	stat = true
+
+[credential]
+  helper = cache --timeout=3600
+
+[diff]
+  mnemonicprefix = true
+	renames = copies
+
+[branch]
+  autosetuprebase = always
+	autosetupmerge = always
+
+[apply]
+  whitespace = nowarn
+
+[rebase]
+  autosquash = true
+
+[color]
+	ui = always
+  branch = auto
+  diff = auto
+  status = auto
+
+[color "diff"]
+	meta = yellow bold
+	commit = green bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = "red bold 52"
+	newNormal = "green bold"
+	newHighlight = "green bold 22"
+
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+
+; [commit]
+	; gpgsign = true
+  ;
+[help]
+	autocorrect = 1
+
+[advice]
+	statusHints = false
+
+[rerere]
+	enabled = true
