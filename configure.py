@@ -6,6 +6,7 @@ import shutil
 import subprocess
 import collections
 import errno
+import datetime
 from distutils.dir_util import copy_tree
 try:
     import simplejson as json
@@ -20,17 +21,18 @@ def backup_all_files(backup_dir, src_dir):
     else:
         print("backup directory already exists. Continuing to backup...")
 
-    if not os.path.exists(src_dir):
+    if not (os.path.isfile(src_dir) and os.path.isdir(src_dir)):
         print("the {} doesn't exist.".format(src_dir))
         return
 
     try:
-        shutil.copytree(src_dir, backup_dir+'/')
+        shutil.copytree(src_dir, backup_dir + '/' + src_dir.split('/')[-1])
     except OSError as e:
         if e.errno == errno.ENOTDIR:
-            shutil.copy(src_dir, backup_dir+'/')
+            shutil.copy(src_dir, backup_dir + '/')
         else:
             raise
+
 
 def construct_command(command, subcommand, argument):
     return command + ' ' + subcommand + ' ' + argument
@@ -57,19 +59,32 @@ def excute_commands(section, configObj, cwd):
 
     elif section == 'linking':
         for directory in configObj[section]:
-            _src = os.path.join(cwd, directory['src'])
-            _dest = os.path.expandvars('$HOME') + '/' + directory['dest']
+            _src = os.path.join(cwd, directory['src']).rstrip('/')
+            _dest = os.path.expandvars(
+                '$HOME') + '/' + directory['dest'].rstrip('/')
 
             print("Backing up {}".format(directory['name']))
-            backup_all_files(cwd + '/.backups', _dest)
+            now = datetime.datetime.now()
+            backup_dir = cwd + '/.backups' +  '/' + \
+                now.strftime("%d-%m-%Y-%H:%M")
 
-            print("Processing {}".format(directory['name']))
-            # print(_src, _dest)
-            if os.path.lexists(_dest):
-                print("Link already exists at destination. Removing it...")
-                os.unlink(_dest)
+            current_status = cwd + '/current_status'
+            if not os.path.exists(current_status):
+                file = open(current_status, 'a')
+                file.close()
 
-            os.symlink(_src, _dest)
+            current_status = open(cwd + '/current_status').read()
+            current_files = [os.path.expanduser(file) for file in current_status.strip().split('\n')]
+            print(current_files)
+            # backup_all_files(backup_dir, _dest)
+
+            # print("Processing {}".format(directory['name']))
+            # # print(_src, _dest)
+            # if os.path.lexists(_dest):
+            #     print("Link already exists at destination. Removing it...")
+            #     os.unlink(_dest)
+
+            # os.symlink(_src, _dest)
 
 
 def readConfig(path):
@@ -91,6 +106,9 @@ def main():
         cwd = os.path.join(os.path.sep, path.rpartition('/')[0])
 
     configObj = readConfig(path)
+
+    if not os.path.exists(cwd + '/.backups'):
+        os.makedirs(cwd + '/.backups')
 
     print(json.dumps(configObj, indent=2 * ' '))
     vars = [name for name, value in configObj.items()]
