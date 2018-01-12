@@ -126,6 +126,8 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'airblade/vim-gitgutter'
   Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'davidhalter/jedi-vim'
+
+  Plug 'chrisbra/Colorizer'
 call plug#end()
 
 nnoremap ,; ;

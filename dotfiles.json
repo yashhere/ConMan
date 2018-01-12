@@ -34,9 +34,9 @@
       "dest": ".profile"
     },
     {
-      "name": "dunst",
-      "src": "dotfiles/dunst",
-      "dest": ".config/dunst"
+      "name": "tmux-conf",
+      "src": "dotfiles/.tmux.conf",
+      "dest": ".tmux.conf"
     },
     {
       "name": "fonts",
@@ -102,6 +102,27 @@
       "name": "termite",
       "src": "dotfiles/termite",
       "dest": ".config/termite"
+    },
+    {
+      "name": "i3",
+      "src": "dotfiles/i3",
+      "dest": ".config/i3"
+    },
+    {
+      "name": "polybar",
+      "src": "dotfiles/polybar",
+      "dest": ".config/polybar"
+    },
+    {
+      "name": "nvim",
+      "src": "dotfiles/nvim.vimrc",
+      "dest": ".config/nvim/init.vim"
+    },
+    {
+      "name": "dunst",
+      "src": "dotfiles/dunst",
+      "dest": ".config/dunst"
     }
+
   ]
 }

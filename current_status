@@ -3,9 +3,8 @@
 /home/yash/.bashrc
 /home/yash/.bash_profile
 /home/yash/.profile
-/home/yash/.config/dunst
+/home/yash/.tmux.conf
 /home/yash/.fonts
-/home/yash/.git
 /home/yash/.gitconfig
 /home/yash/.gitignore
 /home/yash/.gitignore_global
@@ -18,3 +17,7 @@
 /home/yash/.config/redshift.conf
 /home/yash/.config/sublime-text-3/Packages/User
 /home/yash/.config/termite
+/home/yash/.config/i3
+/home/yash/.config/polybar
+/home/yash/.config/nvim/init.vim
+/home/yash/.config/dunst

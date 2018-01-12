@@ -57,7 +57,6 @@
 		".sass-cache"
 	],
 	"font_face": "SF Mono",
-	// "font_face": "Monaco",
 	"font_options":
 	[
 		"subpixel_antialias"

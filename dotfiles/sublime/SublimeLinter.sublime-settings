@@ -15,6 +15,12 @@
                 "max-line-length": null,
                 "select": ""
             },
+            "puglint": {
+                "@disable": false,
+                "args": [],
+                "excludes": [],
+                "reporter": "inline"
+            },
             "pycodestyle": {
                 "@disable": true,
                 "args": [],
@@ -39,6 +45,13 @@
                 "@disable": false,
                 "args": [],
                 "excludes": []
+            },
+            "scss": {
+                "@disable": false,
+                "args": [],
+                "exclude-linter": "",
+                "excludes": [],
+                "include-linter": ""
             }
         },
         "mark_style": "squiggly underline",
@@ -46,7 +59,9 @@
         "passive_warnings": false,
         "paths": {
             "linux": [
-                "/home/yash/.local/bin/"
+                "/home/yash/.local/bin/",
+                "/home/yash/.npm-packages/bin/",
+                "/home/yash/.rvm/gems/ruby-2.4.1/bin/"
             ],
             "osx": [],
             "windows": []

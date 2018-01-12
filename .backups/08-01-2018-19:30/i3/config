@@ -322,7 +322,7 @@ assign [class=".*(F|f)irefox.*"] $workspace5
 assign [class=Sublime_text] $workspace4
 
 ## workspace 6 (Other Editors)
-assign [class=Code|Gedit|Atom|Xed|jetbrains-studio] $workspace6
+assign [class=Code|Gedit|Atom|Xed] $workspace6
 
 ## workspace 8 (Image Viewers)
 assign [class=Pix|Xviewer|feh] $workspace8
@@ -330,8 +330,8 @@ assign [class=Pix|Xviewer|feh] $workspace8
 ## workspace 9 (Messaging)
 assign [class=Riot|Hexchat|Xchat-gnome] $workspace9
 
-## workspace 10 (PDF Reader)
-assign [class=Xreader] $workspace10
+## workspace 10 (Virtualbox)
+assign [class="VirtualBox Manager"] $workspace10
 
 ## focus on launch
 for_window [class=Termite|URxvt|Pix|Xviewer|feh|gedit|Xed|jetbrains-pycharm-ce|vlc] focus
