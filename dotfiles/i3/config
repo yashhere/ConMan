@@ -244,7 +244,8 @@ bindsym $mod+Print exec scrot -u -e 'mv $f ~/Pictures/Screenshots/'
 
 
 
-bindsym $mod+d exec --no-startup-id "rofi -show run -config ~/.config/i3/rofi";
+# bindsym $mod+d exec --no-startup-id "rofi -show run -config ~/.config/i3/rofi";
+bindsym $mod+d exec --no-startup-id "rofi -show run";
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id xfce4-power-manager
@@ -275,7 +276,7 @@ exec --no-startup-id syndaemon -i 0.7 -t -d
 
 # Run unclutter when starting
 exec --no-startup-id unclutter
-exec --no-startup-id xrandr --dpi 112
+exec --no-startup-id xrandr --dpi 96
 exec --no-startup-id xsettingsd
 exec --no-startup-id mpd
 exec killall -q notify-osd
@@ -319,7 +320,8 @@ assign [class=vlc|Rhythmbox|cmus] $workspace7
 assign [class=".*(F|f)irefox.*"] $workspace5
 
 ## workspace 4 (Sublime Text)
-assign [class=Sublime_text] $workspace4
+assign [class=Sublime_text|Subl3] $workspace4
+
 
 ## workspace 6 (Other Editors)
 assign [class=Code|Gedit|Atom|Xed|jetbrains-studio] $workspace6

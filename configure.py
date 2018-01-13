@@ -34,6 +34,7 @@ def backup_files(backup_dir, src_dir):
 
 
 def excute_commands(section, configObj, cwd):
+    '''
     if section == 'pre':
         devnull = open(os.devnull, "w")
         retval = subprocess.call(
@@ -51,8 +52,8 @@ def excute_commands(section, configObj, cwd):
                 subprocess.call(command, cwd=cwd, shell=True)
             else:
                 print("{} already exists. Skipping git clone...".format(repo_name))
-
-    elif section == 'linking':
+'''
+    if section == 'linking':
         now = datetime.datetime.now()
         backup_dir = cwd + '/.backups' +  '/' + \
             now.strftime("%d-%m-%Y-%H:%M")

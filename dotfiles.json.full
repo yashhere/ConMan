@@ -9,6 +9,16 @@
   ],
   "linking": [
     {
+      "name": "tmux-conf",
+      "src": "dotfiles/.tmux.conf",
+      "dest": ".tmux.conf"
+    },
+    {
+      "name": "tmux",
+      "src": "dotfiles/.tmux",
+      "dest": ".tmux"
+    },
+    {
       "name": "bashrc",
       "src": "dotfiles/.bashrc",
       "dest": ".bashrc"
@@ -22,6 +32,11 @@
       "name": "profile",
       "src": "dotfiles/.profile",
       "dest": ".profile"
+    },
+    {
+      "name": "tmux-conf",
+      "src": "dotfiles/.tmux.conf",
+      "dest": ".tmux.conf"
     },
     {
       "name": "fonts",
