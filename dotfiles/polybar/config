@@ -87,9 +87,9 @@ modules-center = date
 modules-right = backlight redshift wifi eth volume battery
 
 tray-position = right
-tray-padding = 10
-tray-transparent = true
-tray-detached = true
+tray-padding = 5
+; tray-transparent = true
+; tray-detached = true
 ;wm-restack = i3
 
 scroll-up = i3wm-wsnext

@@ -207,14 +207,5 @@ else
     ssh-add
 fi
 
-export PATH="$PATH:$HOME/bin:/home/yash/.local/bin"
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
-. /etc/infinality-settings.sh
-
-# Ubuntu make installation of Ubuntu Make binary symlink
-PATH=/home/yash/.local/share/umake/bin:$PATH
+## Aliases
+alias dots='cd ~/ConMan/dotfiles/'

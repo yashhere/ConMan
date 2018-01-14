@@ -244,7 +244,8 @@ bindsym $mod+Print exec scrot -u -e 'mv $f ~/Pictures/Screenshots/'
 
 
 
-bindsym $mod+d exec --no-startup-id "rofi -show run -config ~/.config/i3/rofi";
+# bindsym $mod+d exec --no-startup-id "rofi -show run -config ~/.config/i3/rofi";
+bindsym $mod+d exec --no-startup-id "rofi -show run"
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id xfce4-power-manager
@@ -275,7 +276,7 @@ exec --no-startup-id syndaemon -i 0.7 -t -d
 
 # Run unclutter when starting
 exec --no-startup-id unclutter
-exec --no-startup-id xrandr --dpi 112
+exec --no-startup-id xrandr --dpi 96
 exec --no-startup-id xsettingsd
 exec --no-startup-id mpd
 exec killall -q notify-osd
@@ -296,7 +297,7 @@ client.urgent #2f343a #900000 #ffffff #900000
 
 
 ## file manager
-bindsym $mod+Shift+f exec nemo;workspace 3;focus
+bindsym $mod+Shift+f exec thunar;workspace 3;focus
 
 ## bar toggle, hide or show
 bindsym $mod+b bar mode toggle
@@ -313,13 +314,13 @@ assign [class=Chromium|Google-chrome] $workspace1
 assign [class=Nemo|Thunar|File-roller] $workspace3
 
 ## workspace 7 (media-players)
-assign [class=vlc|Rhythmbox|cmus] $workspace7
+assign [class=vlc|Vlc|Rhythmbox|cmus] $workspace7
 
 ## workspace 5 (Firefox)
 assign [class=".*(F|f)irefox.*"] $workspace5
 
 ## workspace 4 (Sublime Text)
-assign [class=Sublime_text] $workspace4
+assign [class=Sublime_text|Subl3] $workspace4
 
 ## workspace 6 (Other Editors)
 assign [class=Code|Gedit|Atom|Xed|jetbrains-studio] $workspace6
@@ -328,7 +329,7 @@ assign [class=Code|Gedit|Atom|Xed|jetbrains-studio] $workspace6
 assign [class=Pix|Xviewer|feh] $workspace8
 
 ## workspace 9 (Messaging)
-assign [class=Riot|Hexchat|Xchat-gnome] $workspace9
+assign [class=Riot|TelegramDesktop|Hexchat|Xchat-gnome] $workspace9
 
 ## workspace 10 (PDF Reader)
 assign [class=Xreader] $workspace10
