@@ -98,7 +98,7 @@ noremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>       " Cancel a search with es
 " Install Plugins
 call plug#begin('~/.local/share/nvim/plugged')
 	" Themes
-	Plug 'vim-airline/vim-airline-themes'
+  Plug 'vim-airline/vim-airline-themes'
   Plug 'alessandroyorba/despacio'
   Plug 'chriskempson/base16-vim'
 
@@ -108,7 +108,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'shime/vim-livedown'
 
 	" Other Tools
-	Plug 'vim-airline/vim-airline'					          " Airline bar
+  Plug 'vim-airline/vim-airline'					          " Airline bar
 	Plug 'w0rp/ale'           						            " syntax info
 	Plug 'Raimondi/delimitmate'						            " smart completion of delimiters
   Plug 'vim-scripts/indentpython.vim'

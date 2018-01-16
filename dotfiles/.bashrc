@@ -208,4 +208,11 @@ else
 fi
 
 ## Aliases
-alias dots='cd ~/ConMan/dotfiles/'
+alias d='cd ~/ConMan/dotfiles/'
+
+# set PATH so it includes user's private bin directories
+export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.rvm/bin:$PATH"
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+export PATH="$PATH:$HOME/Android/Sdk/tools:$HOME/Android/Sdk/platform-tools"

@@ -19,7 +19,7 @@ search_wrap = true
 #hyperlinks = false
 padding = 2
 # $BROWSER is used by default if set, with xdg-open as a fallback
-browser = google-chrome-stable
+browser = chromium
 
 # "system", "on" or "off"
 cursor_blink = on
