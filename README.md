@@ -1,12 +1,14 @@
 # ConMan
 > A python script to manage configuration files in Linux and automatically symlink them to their desired place.
 
-```
- _______  _____  __   _ _______ _______ __   _
- |       |     | | \  | |  |  | |_____| | \  |
- |_____  |_____| |  \_| |  |  | |     | |  \_|
+<pre>
+   ____            __  __             
+ / ___|___  _ __ |  \/  | __ _ _ __  
+| |   / _ \| '_ \| |\/| |/ _` | '_ \ 
+| |__| (_) | | | | |  | | (_| | | | |
+ \____\___/|_| |_|_|  |_|\__,_|_| |_|
 
-```
+</pre>
 
 ## Features
 - Written in Python 3, so it is easy to set it up on fresh installation.
