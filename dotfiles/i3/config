@@ -308,8 +308,9 @@ bindsym $mod+b bar mode toggle
 ## workspace 2 (Terminals)
 assign [class=Gnome-terminal|Termite|URxvt] $workspace2
 
+
 ## workspace 1 (web browsers)
-assign [class=Chromium|Google-chrome] $workspace1
+assign [class=Chromium|Google-chrome] $workspace5
 
 ## workspace 3 (file-manager)
 assign [class=Nemo|Thunar|File-roller] $workspace3
@@ -318,7 +319,7 @@ assign [class=Nemo|Thunar|File-roller] $workspace3
 assign [class=vlc|Vlc|Rhythmbox|cmus] $workspace7
 
 ## workspace 5 (Firefox)
-assign [class=".*(F|f)irefox.*"] $workspace5
+assign [class=".*(F|f)irefox.*"] $workspace1
 
 ## workspace 4 (Sublime Text)
 assign [class=Sublime_text|Subl3] $workspace4
