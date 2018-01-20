@@ -7,8 +7,6 @@ name = "pypi"
 
 [packages]
 
-ruamel-yaml = "*"
-simplejson = "*"
 
 
 [dev-packages]

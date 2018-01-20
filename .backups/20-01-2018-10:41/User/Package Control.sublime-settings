@@ -7,10 +7,10 @@
 	[
 		"AdvancedNewFile",
 		"Bash Build System",
-		"Git Conflict Resolver",
 		"GitGutter",
 		"HTML-CSS-JS Prettify",
 		"HTMLBeautify",
+		"Indent XML",
 		"Jedi - Python autocompletion",
 		"LanguageTool",
 		"Markdown Preview",
