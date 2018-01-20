@@ -277,6 +277,7 @@ exec --no-startup-id syndaemon -i 0.7 -t -d
 # Run unclutter when starting
 exec --no-startup-id unclutter
 exec --no-startup-id xrandr --dpi 96
+exec --no-startup-id caffeine
 exec --no-startup-id xsettingsd
 exec --no-startup-id mpd
 exec killall -q notify-osd
