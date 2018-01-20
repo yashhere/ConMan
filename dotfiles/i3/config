@@ -120,11 +120,11 @@ bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+grave workspace next
 bindsym $mod+Shift+grave workspace prev
 
-set $workspace1 "1 Chrome"
+set $workspace1 "1 Firefox"
 set $workspace2 "2 Terminal"
 set $workspace3 "3 Files"
 set $workspace4 "4 Sublime"
-set $workspace5 "5 Firefox"
+set $workspace5 "5 Chromium"
 set $workspace6 "6 Code"
 set $workspace7 "7 Music"
 set $workspace8 "8 Images"

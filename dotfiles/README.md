@@ -1,0 +1,14 @@
+# Dependencies
+- i3-gaps
+- termite
+- i3-lock-fancy
+- scrot
+- rofi
+- polybar
+- xautolock
+- compton
+- dunst
+- feh
+- caffeine
+- redshift
+- numlockx
