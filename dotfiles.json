@@ -107,7 +107,11 @@
       "name": "dunst",
       "src": "dotfiles/dunst",
       "dest": ".config/dunst"
+    },
+    {
+      "name": "scripts",
+      "src": "dotfiles/scripts",
+      "dest": "scripts"
     }
-
   ]
 }
