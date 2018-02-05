@@ -2,9 +2,9 @@
 > A python script to manage configuration files in Linux and automatically symlink them to their desired place.
 
 <pre>
-   ____            __  __             
- / ___|___  _ __ |  \/  | __ _ _ __  
-| |   / _ \| '_ \| |\/| |/ _` | '_ \ 
+   ____            __  __
+ / ___|___  _ __ |  \/  | __ _ _ __
+| |   / _ \| '_ \| |\/| |/ _` | '_ \
 | |__| (_) | | | | |  | | (_| | | | |
  \____\___/|_| |_|_|  |_|\__,_|_| |_|
 
@@ -64,6 +64,10 @@ It is recommended to use a virtual environment to set up the dependencies of thi
 - If your configuration files are online, then you don't need to do anything. The script will automatically download the files from the location specified in the dotfiles.json. If you already have all the files and folders in place, then the script will first backup them before doing any symlinking.
 - Place `dotfiles.json` in the same folder. A sample `dotfiles.json` is provided with this repository. Edit this file to suit your needs.
 - Then run the script with `python configure.py`. The script will first take the backup of all the existing files and folders and then symlinks the configuration files in dotfiles folder to their respective locations.
+
+## TODO
+
+- [ ] Check `current_status` before symlinking any new files. If file is already symlinked and stored in `current_status`, then skip it.
 
 ## Contributing
 - If you encounter any bug or want any new feature, feel free to open an issue.
