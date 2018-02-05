@@ -1,0 +1,2 @@
+# /etc/modprobe.d/nobeep.conf
+blacklist iTCO_wdt

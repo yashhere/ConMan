@@ -1,4 +1,8 @@
 {
+	"added_words":
+	[
+		"Calicut"
+	],
 	"auto_close_tags": false,
 	"binary_file_patterns":
 	[
@@ -18,7 +22,7 @@
 	],
 	"bold_folder_labels": true,
 	"caret_style": "phase",
-	"color_scheme": "Packages/User/SublimeLinter/Material Spacegray (SL).tmTheme",
+	"color_scheme": "Packages/User/SublimeLinter/Breakers (SL).tmTheme",
 	"default_encoding": "UTF-8",
 	"default_line_ending": "system",
 	"detect_indentation": true,
@@ -66,6 +70,7 @@
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
+		"Markdown",
 		"Vintage"
 	],
 	"line_padding_bottom": 1,
@@ -80,7 +85,7 @@
 	"spell_check": false,
 	"tab_completion": false,
 	"tab_size": 4,
-	"theme": "Material Brogrammer.sublime-theme",
+	"theme": "Material Spacegray Light.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
 	"word_wrap": true

@@ -126,7 +126,7 @@ fi
 
 # base-16 manager configuration
 BASE16_SHELL=$HOME/.config/base16-shell/
-#[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 # npm installation without sudo
 NPM_PACKAGES="${HOME}/.npm-packages"
@@ -217,4 +217,16 @@ export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.rvm/bin:$PATH"
 
 export PATH="$PATH:$HOME/Android/Sdk/tools:$HOME/Android/Sdk/platform-tools"
 
-export PATH="$PATH:/home/yash/stock/bootimg-tools/mkbootimg"
+
+# "command not found" hook
+source /usr/share/doc/pkgfile/command-not-found.bash
+
+export PATH="$PATH:/home/yash/scripts"
+export PATH=$HOME/bin:$PATH:$HOME/go/bin
+
+export GOPATH=$HOME/go:$HOME/work/go-devel
+
+if [ -f ~/.config/exercism/exercism_completion.bash ]; then
+  . ~/.config/exercism/exercism_completion.bash
+fi
+

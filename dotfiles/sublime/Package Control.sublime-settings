@@ -6,14 +6,22 @@
 	"installed_packages":
 	[
 		"AdvancedNewFile",
+		"Base16 Color Schemes",
 		"Bash Build System",
+		"Color Highlighter",
+		"DA CS",
+		"DA UI",
 		"Git Conflict Resolver",
 		"GitGutter",
+		"Guna",
 		"HTML-CSS-JS Prettify",
 		"HTMLBeautify",
+		"Hugofy",
 		"Jedi - Python autocompletion",
 		"LanguageTool",
 		"Markdown Preview",
+		"MarkdownEditing",
+		"MarkdownHighlighting",
 		"MarkdownLivePreview",
 		"Materialize",
 		"Materialized CSS Snippets",
@@ -31,6 +39,7 @@
 		"SublimeLinter-pydocstyle",
 		"SublimeLinter-pyflakes",
 		"Theme - Spacegray",
-		"Themr"
+		"Themr",
+		"WordCount"
 	]
 }
