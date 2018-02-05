@@ -65,6 +65,9 @@ It is recommended to use a virtual environment to set up the dependencies of thi
 - Place `dotfiles.json` in the same folder. A sample `dotfiles.json` is provided with this repository. Edit this file to suit your needs.
 - Then run the script with `python configure.py`. The script will first take the backup of all the existing files and folders and then symlinks the configuration files in dotfiles folder to their respective locations.
 
+## TODO
+- [] Check `current_status` before symlinking any new files. If file is already symlinked and stored in `current_status`, then skip it.
+
 ## Contributing
 - If you encounter any bug or want any new feature, feel free to open an issue.
 - Pull requests are welcome.
